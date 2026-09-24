@@ -20,7 +20,7 @@ def insertion_sort(arr: list[float]) -> list[float]:
 
 
 def main():
-    print("=== Лаба №5: сортировка вставками ===")
+    print("Лаба 5: сортировка вставками")
     raw = input("Введите числа через пробел: ")
     try:
         data = list(map(float, raw.split()))
