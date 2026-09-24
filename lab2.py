@@ -97,7 +97,7 @@ def calc_expression(expr: str) -> float:
 
 
 def main():
-    print("=== Лаба №2: арифметическое выражение ===")
+    print("Лаба 2: арифметическое выражение")
     expr = input("Введите выражение (оканчивается '='): ").strip()
 
     if not expr.endswith('='):
@@ -105,7 +105,7 @@ def main():
         return
     expr = expr[:-1]
 
-    # проверка скобок (из лабы №1)
+    # проверка скобок (из лабы 1)
     if not check_all_types(expr):
         print("Скобки расставлены неверно")
         return
