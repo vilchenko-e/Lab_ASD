@@ -2,7 +2,6 @@ def is_357_smooth(k: int) -> bool:
     """
     True, если k = 3^K * 5^L * 7^M.
     Делим на 3, 5, 7, пока делится; если осталось 1 — да.
-    Время: O(log k).
     """
     for p in (3, 5, 7):
         while k % p == 0:
@@ -11,9 +10,7 @@ def is_357_smooth(k: int) -> bool:
 
 def by_powers(x: int) -> list[int]:
     """
-    Тройной цикл по K, L, M, с ранним выходом за x.
-    Количество чисел ~O(log³ x), столько же времени.
-    Память: O(log³ x).
+    Тройной цикл по K, L, M.
     """
     result = []
     p3 = 1
@@ -31,7 +28,7 @@ def by_powers(x: int) -> list[int]:
 
 
 def main():
-    print("=== Лаба №3: числа вида 3^K * 5^L * 7^M ===")
+    print("Лаба 3: числа вида 3^K * 5^L * 7^M")
     try:
         x = int(input("Введите число x: "))
     except ValueError:
