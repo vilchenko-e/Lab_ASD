@@ -60,7 +60,7 @@ def _ask_string() -> str | None:
 
 def main():
     while True:
-        print("\nЛаба №1: задача о скобках")
+        print("\nЛаба 1: задача о скобках")
         print("1 — пункт 1 (один тип скобок)")
         print("2 — пункт 2 (все три вида)")
         print("0 — выход")
