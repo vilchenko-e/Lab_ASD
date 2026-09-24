@@ -9,19 +9,8 @@ def is_357_smooth(k: int) -> bool:
             k //= p
     return k == 1
 
-
-def by_divisibility(x: int) -> list[int]:
-    """
-    Вариант 1 — через признаки делимости.
-    Перебираем все k от 1 до x.
-    Время: O(x · log x). Память: O(1) (без вывода).
-    """
-    return [k for k in range(1, x + 1) if is_357_smooth(k)]
-
-
 def by_powers(x: int) -> list[int]:
     """
-    Вариант 2 — через перебор степеней.
     Тройной цикл по K, L, M, с ранним выходом за x.
     Количество чисел ~O(log³ x), столько же времени.
     Память: O(log³ x).
@@ -51,9 +40,7 @@ def main():
     if x < 1:
         print("Число должно быть >= 1")
         return
-
-    print("Через признаки делимости:", *by_divisibility(x))
-    print("Через перебор степеней:  ", *by_powers(x))
+    print("Вывод:  ", *by_powers(x))
 
 
 if __name__ == "__main__":
