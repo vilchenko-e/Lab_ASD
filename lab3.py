@@ -1,13 +1,3 @@
-def is_357_smooth(k: int) -> bool:
-    """
-    True, если k = 3^K * 5^L * 7^M.
-    Делим на 3, 5, 7, пока делится; если осталось 1 — да.
-    """
-    for p in (3, 5, 7):
-        while k % p == 0:
-            k //= p
-    return k == 1
-
 def by_powers(x: int) -> list[int]:
     """
     Тройной цикл по K, L, M.
