@@ -2,7 +2,13 @@ from stack import Stack
 from lab1 import check_all_types
 
 
-def apply_op(a: float, b: float, op: str) -> float:
+def apply_op(a: float, b=None, op=None) -> float:
+    if b is None:
+        if op == '+':
+            return a
+        elif op == '-':
+            return -a
+        raise ValueError("Недопустимая операция")
     if op == '+': return a + b
     if op == '-': return a - b
     if op == '*': return a * b
@@ -43,8 +49,10 @@ def calc_expression(expr: str) -> float:
             continue
 
         # --- число ---
-        if ch.isdigit() or ch == '.':
+        if ch.isdigit() or ch == '.' or (ch in "+-" and (i==0 or expr[i-1] in "([{+-*/")):
             j = i
+            if ch in "+-":
+                j+=1
             while j < n and (expr[j].isdigit() or expr[j] == '.'):
                 j += 1
             try:
@@ -73,6 +81,12 @@ def calc_expression(expr: str) -> float:
 
         # --- операция ---
         if ch in '+-*/':
+            if ch in "+-" and (i==0 or expr[i-1] in "([{+-*/"):
+                if i+1 < n and (expr[i+1].isdigit() or expr[i+1] == "."):
+                    i+=1
+                    continue
+                else:
+                    raise ValueError()
             while (not ops.is_empty() and ops.peek() != '('
                    and priority(ops.peek()) >= priority(ch)):
                 b = values.pop(); a = values.pop()
